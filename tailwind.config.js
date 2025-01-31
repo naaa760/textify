@@ -30,6 +30,50 @@ module.exports = {
         green: {
           50: "#F0FDF4",
         },
+        portal: {
+          purple: {
+            light: "#B292D6",
+            DEFAULT: "#9D85D2",
+            dark: "#8B7FD0",
+          },
+        },
+        gray: {
+          750: "#2F3545",
+          850: "#1B2032",
+          950: "#0B0F1A",
+        },
+        "purple-grey": {
+          100: "#E9E7F3",
+          200: "#D3CFE7",
+          300: "#BDB7DB",
+          400: "#A79FCF",
+          500: "#8B7FD0",
+          600: "#7365C4",
+          700: "#5B4BB8",
+          800: "#4A3D96",
+          900: "#382E71",
+        },
+        "silver-purple": {
+          50: "#F8F8FF", // Ghost White
+          100: "#E6E6FA", // Lavender
+          200: "#C5CAE9", // Light Steel Purple
+          300: "#B0C4DE", // Light Steel Blue
+          400: "#9FB6CD", // Light Steel Blue 3
+          500: "#8B9DC3", // Light Steel Blue 4
+        },
+        "light-purple": {
+          50: "#F0E6FF", // Lightest purple
+          100: "#E6E6FA", // Lavender
+          200: "#DCD0FF", // Light periwinkle
+          300: "#D8BFD8", // Thistle
+          400: "#CBC3E3", // Pale purple
+          500: "#B19CD9", // Light pastel purple
+        },
+        dark: {
+          DEFAULT: "#0A0A0B",
+          50: "#2C2C35",
+          100: "#1A1A1D",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
@@ -38,6 +82,7 @@ module.exports = {
         "4xl": ["2.5rem", "1.2"],
         "5xl": ["3rem", "1.2"],
         "6xl": ["4rem", "1.2"],
+        "7xl": ["4.5rem", "1.1"],
       },
       spacing: {
         18: "4.5rem",
@@ -49,6 +94,21 @@ module.exports = {
       },
       backdropBlur: {
         xs: "2px",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-mix": "linear-gradient(130deg, var(--tw-gradient-stops))",
+        "gradient-dark":
+          "linear-gradient(to bottom right, var(--tw-gradient-stops))",
+      },
+      animation: {
+        shimmer: "shimmer 8s linear infinite",
+      },
+      keyframes: {
+        shimmer: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
     },
   },

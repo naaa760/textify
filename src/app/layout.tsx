@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lattice - The HR platform people love",
+  title: "Textify - The HR platform people love",
   description:
     "Manage employee information, drive performance, capture team sentiment, and report key insights - all in one place.",
 };
