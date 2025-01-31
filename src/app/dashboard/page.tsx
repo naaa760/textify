@@ -79,7 +79,10 @@ export default function Dashboard() {
         >
           {/* Logo */}
           <div className="mb-12">
-            <span className="text-2xl font-['Chivo'] text-[#8A6B55]">
+            <span
+              className="text-2xl font-['Chivo'] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#75443D] to-[#F6F0FC] 
+                bg-clip-text text-transparent"
+            >
               TextiFy
             </span>
           </div>
