@@ -143,10 +143,10 @@ export default function Dashboard() {
           {/* Main Content Area */}
           <div className="flex gap-8">
             {/* Left Content */}
-            <div className="flex-1">
+            <div className="flex-1 flex flex-col gap-12">
               {/* Rooms Section */}
               <section>
-                <h2 className="text-[16px] font-['Chivo'] text-[#2B2B2B] mb-4">
+                <h2 className="text-[16px] font-['Chivo'] text-[#2B2B2B] mb-6">
                   Rooms
                 </h2>
                 <div className="grid grid-cols-4 gap-4 max-w-[800px]">
@@ -178,7 +178,7 @@ export default function Dashboard() {
                   ].map((room) => (
                     <div
                       key={room.name}
-                      className="w-[160px] h-[100px] rounded-2xl bg-gradient-to-br p-4 cursor-pointer 
+                      className="w-[160px] h-[120px] rounded-2xl bg-gradient-to-br p-4 cursor-pointer 
                         hover:shadow-lg transition-all flex flex-col justify-between"
                       style={{
                         background:
@@ -200,12 +200,14 @@ export default function Dashboard() {
               </section>
 
               {/* Levels Section */}
-              <section className="flex flex-col gap-4 w-[680px] h-[220px]">
-                <h2 className="text-xl font-normal text-[#2B2B2B]">Levels</h2>
+              <section>
+                <h2 className="text-[16px] font-['Chivo'] text-[#2B2B2B] mb-6">
+                  Levels
+                </h2>
                 <div className="flex gap-4">
                   {/* Humidity Card */}
                   <div
-                    className="relative w-[330px] h-[180px] bg-[#DACCCC] rounded-xl shadow-[0px_2px_6px_rgba(0,0,0,0.25)]
+                    className="relative w-[380px] h-[180px] bg-[#DACCCC] rounded-xl shadow-[0px_2px_6px_rgba(0,0,0,0.25)]
                       transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
                   >
                     {/* Icon and Title */}
@@ -291,7 +293,7 @@ export default function Dashboard() {
 
                   {/* Energy Card */}
                   <div
-                    className="relative w-[330px] h-[180px] bg-[#DACCCC] rounded-xl shadow-[0px_2px_6px_rgba(0,0,0,0.25)]
+                    className="relative w-[380px] h-[180px] bg-[#DACCCC] rounded-xl shadow-[0px_2px_6px_rgba(0,0,0,0.25)]
                       transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
                   >
                     {/* Icon and Title */}
@@ -398,10 +400,10 @@ export default function Dashboard() {
 
               {/* Devices Section */}
               <section>
-                <h2 className="text-lg font-semibold text-[#8A6B55] mb-3">
+                <h2 className="text-[16px] font-['Chivo'] text-[#2B2B2B] mb-6">
                   Devices
                 </h2>
-                <div className="grid grid-cols-4 gap-3">
+                <div className="grid grid-cols-4 gap-4 max-w-[800px]">
                   {[
                     { name: "Air Conditioner", icon: "❄️", status: "Off" },
                     { name: "Smart TV", icon: "📺", status: "On" },
@@ -410,12 +412,15 @@ export default function Dashboard() {
                   ].map((device) => (
                     <div
                       key={device.name}
-                      className="p-3 rounded-xl bg-white/80 backdrop-blur-sm
-                        transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+                      className="w-[160px] h-[120px] p-4 rounded-2xl bg-white/80 backdrop-blur-sm
+                        transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer
+                        flex flex-col justify-between"
                     >
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="bg-blue-500 p-1.5 rounded-lg transition-colors hover:bg-blue-600">
-                          <span className="text-lg">{device.icon}</span>
+                      <div className="flex items-center justify-between">
+                        <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center transition-colors hover:bg-blue-600">
+                          <span className="text-white text-xl">
+                            {device.icon}
+                          </span>
                         </div>
                         <label className="relative inline-flex items-center cursor-pointer">
                           <input
@@ -423,15 +428,22 @@ export default function Dashboard() {
                             className="sr-only peer"
                             defaultChecked={device.status === "On"}
                           />
-                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                          <div
+                            className="w-9 h-5 bg-gray-200 rounded-full peer 
+                            peer-checked:bg-blue-500 after:content-[''] after:absolute 
+                            after:top-[2px] after:left-[2px] after:bg-white after:rounded-full 
+                            after:h-4 after:w-4 after:transition-all peer-checked:after:translate-x-full"
+                          ></div>
                         </label>
                       </div>
-                      <h3 className="text-sm font-medium text-[#8A6B55]">
-                        {device.name}
-                      </h3>
-                      <p className="text-xs text-[#8A6B55]/70">
-                        {device.status}
-                      </p>
+                      <div>
+                        <h3 className="text-[#8A6B55] text-sm font-medium">
+                          {device.name}
+                        </h3>
+                        <p className="text-[#8A6B55]/70 text-xs">
+                          {device.status}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
