@@ -53,14 +53,6 @@ const energyData = [
   { day: "Sat", value: 67 },
 ];
 
-interface ShapeProps {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  index: number;
-}
-
 // Dashboard Layout
 export default function Dashboard() {
   return (
@@ -375,18 +367,31 @@ export default function Dashboard() {
                             dataKey="value"
                             fill="#E8F3FC"
                             radius={[2, 2, 0, 0]}
-                            shape={(props: ShapeProps) => {
+                            //@ts-expect-error - shape prop type doesn't match recharts definition but works as expected
+                            shape={(props) => {
                               const { x, y, width, height, index } = props;
                               return (
                                 <g>
-                                  <path
-                                    d={`M ${x},${y + height} 
-                                        L ${x},${y} 
-                                        L ${x + width},${y} 
-                                        L ${x + width},${y + height}
-                                        Z`}
-                                    fill="#E8F3FC"
+                                  <rect
+                                    x={x}
+                                    y={y}
+                                    width={width}
+                                    height={height}
+                                    fill={index === 5 ? "#2396EF" : "#E8F3FC"}
+                                    rx={2}
+                                    ry={2}
                                   />
+                                  {index === 5 && (
+                                    <text
+                                      x={x + width / 2}
+                                      y={y - 8}
+                                      textAnchor="middle"
+                                      fill="#2396EF"
+                                      className="text-[10px] font-['Chivo']"
+                                    >
+                                      20.6 kWh
+                                    </text>
+                                  )}
                                 </g>
                               );
                             }}

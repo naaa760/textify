@@ -6,8 +6,8 @@ const RightSidebar = () => {
       {/* Members Section */}
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
-          <span className="font-chivo text-[16px] text-black">Members</span>
-          <span className="font-chivo text-[14px] text-white hover:opacity-80 cursor-pointer transition-opacity">
+          <span className="font-['Chivo'] text-[16px] text-black">Members</span>
+          <span className="font-['Chivo'] text-[14px] text-white hover:opacity-80 cursor-pointer transition-opacity">
             View all
           </span>
         </div>
@@ -50,10 +50,10 @@ const RightSidebar = () => {
                     />
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-chivo text-[14px] text-[#1D1D1D]">
+                    <span className="font-['Chivo'] text-[14px] text-[#1D1D1D]">
                       {member.name}
                     </span>
-                    <span className="font-chivo text-[12px] text-[#1D1D1D]/50">
+                    <span className="font-['Chivo'] text-[12px] text-[#1D1D1D]/50">
                       {member.access}
                     </span>
                   </div>
@@ -66,7 +66,7 @@ const RightSidebar = () => {
               className="w-full h-[40px] bg-[#EAF0FE] rounded-[20px] flex items-center justify-center 
               shadow-sm hover:shadow-md hover:bg-[#EAF0FE]/90 transition-all active:scale-[0.98]"
             >
-              <span className="font-chivo text-[14px] text-[#3F7DF8]">
+              <span className="font-['Chivo'] text-[14px] text-[#3F7DF8]">
                 Add Member
               </span>
             </button>
@@ -77,8 +77,8 @@ const RightSidebar = () => {
       {/* History Section */}
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
-          <span className="font-chivo text-[16px] text-black">History</span>
-          <span className="font-chivo text-[14px] text-white hover:opacity-80 cursor-pointer transition-opacity">
+          <span className="font-['Chivo'] text-[16px] text-black">History</span>
+          <span className="font-['Chivo'] text-[14px] text-white hover:opacity-80 cursor-pointer transition-opacity">
             View all
           </span>
         </div>
@@ -123,14 +123,14 @@ const RightSidebar = () => {
               />
               <div className="flex flex-col">
                 <div className="flex justify-between">
-                  <span className="font-chivo text-[14px] text-black">
+                  <span className="font-['Chivo'] text-[14px] text-black">
                     {item.device}
                   </span>
-                  <span className="font-chivo text-[14px] text-black">
+                  <span className="font-['Chivo'] text-[14px] text-black">
                     {item.time}
                   </span>
                 </div>
-                <span className="font-chivo text-[12px] text-black/75">
+                <span className="font-['Chivo'] text-[12px] text-black/75">
                   {item.status}
                 </span>
               </div>
