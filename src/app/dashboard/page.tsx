@@ -78,10 +78,11 @@ export default function Dashboard() {
             shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
         >
           {/* Logo */}
-          <div className="mb-12">
+          <div className="mb-12 flex justify-center">
             <span
-              className="text-2xl font-['Chivo'] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#75443D] to-[#F6F0FC] 
-                bg-clip-text text-transparent"
+              className="text-3xl font-['Chivo'] font-bold bg-gradient-to-r from-[#FFFFFF] via-[#75443D] to-[#F6F0FC] 
+                bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 cursor-pointer
+                hover:opacity-90"
             >
               TextiFy
             </span>

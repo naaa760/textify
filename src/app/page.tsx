@@ -19,7 +19,6 @@ const starVariants = {
   },
 };
 
-// Improved Star component with better visibility
 const Star = ({ position }: { position: "left" | "right" }) => (
   <motion.div
     className={`absolute ${
@@ -40,7 +39,6 @@ const Star = ({ position }: { position: "left" | "right" }) => (
   </motion.div>
 );
 
-// Enhanced Flickering Stars with better visibility
 const FlickeringStars = () => (
   <div className="absolute inset-0 overflow-hidden">
     {[...Array(50)].map((_, i) => {
@@ -73,11 +71,10 @@ const FlickeringStars = () => (
   </div>
 );
 
-// Additional shimmer effect
 const ShimmerEffect = () => (
   <motion.div
     className="absolute inset-0"
-    initial={{ opacity: 0, x: -100 }}
+    initial={{ opacity: 0, x: "-100%" }}
     animate={{
       opacity: [0, 0.5, 0],
       x: ["-100%", "100%"],
@@ -94,7 +91,6 @@ const ShimmerEffect = () => (
   />
 );
 
-// Add this new component for the feature cards
 const FeatureCard = ({
   icon,
   title,
@@ -131,7 +127,6 @@ export default function Home() {
       {/* Base Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0B] via-[#1A1A1D] to-[#2C2C35]" />
 
-      {/* Stars Layer */}
       <div className="absolute inset-0">
         <FlickeringStars />
         <Star position="left" />
@@ -144,7 +139,6 @@ export default function Home() {
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[128px]" />
       </div>
 
-      {/* Content */}
       <div className="relative">
         <Navbar />
 
