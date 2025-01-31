@@ -82,6 +82,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
+        chivo: ["var(--font-chivo)", "sans-serif"],
       },
       fontSize: {
         "4xl": ["2.5rem", "1.2"],

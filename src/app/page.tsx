@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 import Navbar from "../components/Navbar";
 
@@ -69,26 +70,6 @@ const FlickeringStars = () => (
       );
     })}
   </div>
-);
-
-const ShimmerEffect = () => (
-  <motion.div
-    className="absolute inset-0"
-    initial={{ opacity: 0, x: "-100%" }}
-    animate={{
-      opacity: [0, 0.5, 0],
-      x: ["-100%", "100%"],
-    }}
-    transition={{
-      duration: 5,
-      repeat: Infinity,
-      ease: "linear",
-    }}
-    style={{
-      background:
-        "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%)",
-    }}
-  />
 );
 
 const FeatureCard = ({
@@ -189,9 +170,14 @@ export default function Home() {
                 TRUSTED BY INDUSTRY LEADERS
               </p>
               <div className="flex justify-center items-center gap-12 grayscale opacity-50">
-                <img src="/google.svg" alt="Google" className="h-8" />
-                <img src="/amazon.svg" alt="Amazon" className="h-8" />
-                <img src="/canonical.svg" alt="Canonical" className="h-8" />
+                <Image src="/google.svg" alt="Google" width={32} height={32} />
+                <Image src="/amazon.svg" alt="Amazon" width={32} height={32} />
+                <Image
+                  src="/canonical.svg"
+                  alt="Canonical"
+                  width={32}
+                  height={32}
+                />
               </div>
             </motion.div>
           </div>

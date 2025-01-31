@@ -2,15 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  LineChart,
-  Line,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  ResponsiveContainer,
-} from "recharts";
+import { LineChart, Line, BarChart, Bar, ResponsiveContainer } from "recharts";
 import RightSidebar from "@/components/RightSidebar";
 
 // Updated NavItem component
@@ -60,6 +52,14 @@ const energyData = [
   { day: "Fri", value: 23 },
   { day: "Sat", value: 67 },
 ];
+
+interface ShapeProps {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  index: number;
+}
 
 // Dashboard Layout
 export default function Dashboard() {
@@ -375,30 +375,18 @@ export default function Dashboard() {
                             dataKey="value"
                             fill="#E8F3FC"
                             radius={[2, 2, 0, 0]}
-                            shape={(props) => {
+                            shape={(props: ShapeProps) => {
                               const { x, y, width, height, index } = props;
                               return (
                                 <g>
-                                  <rect
-                                    x={x}
-                                    y={y}
-                                    width={width}
-                                    height={height}
-                                    fill={index === 5 ? "#2396EF" : "#E8F3FC"}
-                                    rx={2}
-                                    ry={2}
+                                  <path
+                                    d={`M ${x},${y + height} 
+                                        L ${x},${y} 
+                                        L ${x + width},${y} 
+                                        L ${x + width},${y + height}
+                                        Z`}
+                                    fill="#E8F3FC"
                                   />
-                                  {index === 5 && (
-                                    <text
-                                      x={x + width / 2}
-                                      y={y - 8}
-                                      textAnchor="middle"
-                                      fill="#2396EF"
-                                      className="text-[10px] font-['Chivo']"
-                                    >
-                                      20.6 kWh
-                                    </text>
-                                  )}
                                 </g>
                               );
                             }}

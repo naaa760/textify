@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Chivo } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const chivo = Chivo({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-chivo",
+});
 
 export const metadata: Metadata = {
   title: "TextiFy - Smart Home Dashboard",
@@ -19,13 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${chivo.variable}`}>{children}</body>
     </html>
   );
 }
