@@ -145,50 +145,54 @@ export default function Dashboard() {
             {/* Left Content */}
             <div className="flex-1">
               {/* Rooms Section */}
-              <section className="mb-6">
-                <h2 className="text-xl font-normal text-[#2B2B2B] mb-4">
+              <section>
+                <h2 className="text-[16px] font-['Chivo'] text-[#2B2B2B] mb-4">
                   Rooms
                 </h2>
-                <div className="grid grid-cols-4 gap-3">
+                <div className="grid grid-cols-4 gap-4 max-w-[800px]">
                   {[
                     {
                       name: "Kitchen",
                       devices: "8 Devices",
                       icon: "🏠",
-                      bgColor: "from-[#E3F17C] to-[#795959]",
+                      color: "from-[#E3F17C] to-[#795959]",
                     },
                     {
                       name: "Living Room",
                       devices: "12 Devices",
                       icon: "🛋️",
-                      bgColor: "from-[#E3F17C] to-[#795959]",
+                      color: "from-[#E3F17C] to-[#795959]",
                     },
                     {
                       name: "Bedroom",
                       devices: "4 Devices",
                       icon: "🛏️",
-                      bgColor: "from-[#E3F17C] to-[#795959]",
+                      color: "from-[#E3F17C] to-[#795959]",
                     },
                     {
                       name: "Bathroom",
                       devices: "3 Devices",
                       icon: "🚿",
-                      bgColor: "from-[#E3F17C] to-[#795959]",
+                      color: "from-[#E3F17C] to-[#795959]",
                     },
                   ].map((room) => (
                     <div
                       key={room.name}
-                      className={`relative h-[100px] rounded-[16px] bg-gradient-to-br ${room.bgColor} p-3 shadow-sm 
-                        transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer`}
+                      className="w-[160px] h-[100px] rounded-2xl bg-gradient-to-br p-4 cursor-pointer 
+                        hover:shadow-lg transition-all flex flex-col justify-between"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, #E3F17C 0%, #795959 100%)",
+                      }}
                     >
-                      <div className="absolute top-3 left-3 w-8 h-8 bg-[#CCE6FB]/60 rounded-lg flex items-center justify-center">
-                        <span className="text-base">{room.icon}</span>
+                      <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                        <span className="text-xl">{room.icon}</span>
                       </div>
-                      <div className="absolute bottom-3 left-3">
-                        <h3 className="text-white text-base font-normal mb-0.5">
+                      <div>
+                        <h3 className="text-white text-sm font-medium">
                           {room.name}
                         </h3>
-                        <p className="text-white/75 text-xs">{room.devices}</p>
+                        <p className="text-white/80 text-xs">{room.devices}</p>
                       </div>
                     </div>
                   ))}

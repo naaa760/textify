@@ -12,7 +12,10 @@ const RightSidebar = () => {
           </span>
         </div>
 
-        <div className="bg-[#DACCCC]/80 backdrop-blur-sm rounded-2xl p-4 shadow-md">
+        <div
+          className="bg-[#DACCCC]/80 backdrop-blur-sm rounded-2xl p-4 shadow-md 
+          hover:shadow-lg hover:bg-[#DACCCC]/90 transition-all duration-300 cursor-default"
+        >
           <div className="flex flex-col gap-4">
             {/* Member List */}
             <div className="flex flex-col gap-3">
@@ -80,7 +83,10 @@ const RightSidebar = () => {
           </span>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div
+          className="flex flex-col gap-4 bg-[#DACCCC]/80 backdrop-blur-sm rounded-2xl p-4 shadow-md 
+          hover:shadow-lg hover:bg-[#DACCCC]/90 transition-all duration-300 cursor-default"
+        >
           {[
             {
               device: "Air Conditioner",
