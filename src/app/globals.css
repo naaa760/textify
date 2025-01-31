@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Chivo:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  position: relative;
+  width: 1440px;
+  height: 918px;
+  background: linear-gradient(
+    180deg,
+    #d1c0b6 0%,
+    #5a4536 99.97%,
+    rgba(33, 33, 37, 0.7) 99.98%
+  );
+  border-radius: 40px;
+  margin: 0 auto; /* This centers the body horizontally */
+  color: var(--foreground);
+  font-family: "Chivo", Arial, sans-serif;
+}
