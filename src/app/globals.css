@@ -29,4 +29,15 @@ body {
   margin: 0 auto; /* This centers the body horizontally */
   color: var(--foreground);
   font-family: "Chivo", Arial, sans-serif;
+  overflow: hidden;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.font-chivo {
+  font-family: "Chivo", sans-serif;
 }
