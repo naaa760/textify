@@ -84,71 +84,171 @@ export default function Dashboard() {
         {/* Main Content */}
         <main className="flex-1 p-8">
           <div className="max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="flex justify-between items-center mb-8">
-              <div>
-                <h1 className="text-3xl font-semibold text-white">Dashboard</h1>
-                <p className="text-[#D1C0B6]">Welcome back, User!</p>
+            {/* Search Bar */}
+            <div className="mb-8">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search Anything Here..."
+                  className="w-full px-4 py-2 pl-10 rounded-xl bg-white/80 backdrop-blur-sm"
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2">
+                  🔍
+                </span>
               </div>
+            </div>
 
-              {/* Profile Section */}
-              <div className="flex items-center space-x-4">
-                <div className="text-right">
-                  <p className="text-white">John Doe</p>
-                  <p className="text-sm text-[#D1C0B6]">Admin</p>
+            {/* Rooms Section */}
+            <section className="mb-8">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-normal text-[#2B2B2B]">Rooms</h2>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="Search Anything Here..."
+                    className="w-[300px] h-[40px] px-10 rounded-full bg-white shadow-sm"
+                  />
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+                        stroke="#6C7894"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d="M22 22L20 20"
+                        stroke="#6C7894"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  </div>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-white/20" />
               </div>
-            </div>
 
-            {/* Dashboard Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Stats Card */}
-              <motion.div
-                whileHover={{ y: -5 }}
-                className="p-6 rounded-3xl bg-white/10 backdrop-blur-sm"
-              >
-                <h3 className="text-lg font-medium text-white mb-4">
-                  Statistics
-                </h3>
-                {/* Add your stats content here */}
-              </motion.div>
+              <div className="grid grid-cols-4 gap-4">
+                {[
+                  {
+                    name: "Kitchen",
+                    devices: "8 Devices",
+                    icon: "🏠",
+                    bgColor: "from-[#E3F17C] to-[#795959]",
+                  },
+                  {
+                    name: "Living Room",
+                    devices: "12 Devices",
+                    icon: "🛋️",
+                    bgColor: "from-[#E3F17C] to-[#795959]",
+                  },
+                  {
+                    name: "Bedroom",
+                    devices: "4 Devices",
+                    icon: "🛏️",
+                    bgColor: "from-[#E3F17C] to-[#795959]",
+                  },
+                  {
+                    name: "Bathroom",
+                    devices: "3 Devices",
+                    icon: "🚿",
+                    bgColor: "from-[#E3F17C] to-[#795959]",
+                  },
+                ].map((room) => (
+                  <div
+                    key={room.name}
+                    className={`relative h-[120px] rounded-[20px] bg-gradient-to-br ${room.bgColor} p-4 shadow-sm`}
+                  >
+                    <div className="absolute top-4 left-4 w-10 h-10 bg-[#CCE6FB]/60 rounded-xl flex items-center justify-center">
+                      <span className="text-xl">{room.icon}</span>
+                    </div>
+                    <div className="absolute bottom-4 left-4">
+                      <h3 className="text-white text-lg font-normal mb-1">
+                        {room.name}
+                      </h3>
+                      <p className="text-white/75 text-sm">{room.devices}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-              {/* Activity Card */}
-              <motion.div
-                whileHover={{ y: -5 }}
-                className="p-6 rounded-3xl bg-white/10 backdrop-blur-sm"
-              >
-                <h3 className="text-lg font-medium text-white mb-4">
-                  Recent Activity
-                </h3>
-                {/* Add your activity content here */}
-              </motion.div>
-
-              {/* Tasks Card */}
-              <motion.div
-                whileHover={{ y: -5 }}
-                className="p-6 rounded-3xl bg-white/10 backdrop-blur-sm"
-              >
-                <h3 className="text-lg font-medium text-white mb-4">Tasks</h3>
-                {/* Add your tasks content here */}
-              </motion.div>
-            </div>
-
-            {/* Recent Projects Section */}
-            <section className="mt-8">
-              <h2 className="text-2xl font-semibold text-white mb-6">
-                Recent Projects
+            {/* Levels Section */}
+            <section className="mb-8">
+              <h2 className="text-xl font-semibold text-[#8A6B55] mb-4">
+                Levels
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Project Cards */}
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  className="p-6 rounded-3xl bg-white/10 backdrop-blur-sm"
-                >
-                  {/* Add project content */}
-                </motion.div>
-                {/* Add more project cards as needed */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Humidity Chart */}
+                <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm">
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="bg-blue-500 p-2 rounded-lg">
+                        <span className="text-white">💧</span>
+                      </div>
+                      <span className="font-medium">Humidity</span>
+                    </div>
+                    <select className="bg-transparent">
+                      <option>Today</option>
+                      <option>Week</option>
+                      <option>Month</option>
+                    </select>
+                  </div>
+                  {/* Add your humidity chart here */}
+                </div>
+
+                {/* Energy Chart */}
+                <div className="p-6 rounded-2xl bg-white/80 backdrop-blur-sm">
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="bg-purple-500 p-2 rounded-lg">
+                        <span className="text-white">⚡</span>
+                      </div>
+                      <span className="font-medium">Energy</span>
+                    </div>
+                    <select className="bg-transparent">
+                      <option>Week</option>
+                      <option>Month</option>
+                      <option>Year</option>
+                    </select>
+                  </div>
+                  {/* Add your energy chart here */}
+                </div>
+              </div>
+            </section>
+
+            {/* Devices Section */}
+            <section>
+              <h2 className="text-xl font-semibold text-[#8A6B55] mb-4">
+                Devices
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { name: "Air Conditioner", icon: "❄️", status: "Off" },
+                  { name: "Smart TV", icon: "📺", status: "On" },
+                  { name: "Coffee Machine", icon: "☕", status: "Off" },
+                  { name: "Refrigerator", icon: "🧊", status: "On" },
+                ].map((device) => (
+                  <div
+                    key={device.name}
+                    className="p-4 rounded-2xl bg-white/80 backdrop-blur-sm"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="bg-blue-500 p-2 rounded-lg">
+                        <span className="text-2xl">{device.icon}</span>
+                      </div>
+                      <label className="relative inline-flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="sr-only peer"
+                          defaultChecked={device.status === "On"}
+                        />
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                      </label>
+                    </div>
+                    <h3 className="font-medium text-[#8A6B55]">
+                      {device.name}
+                    </h3>
+                    <p className="text-sm text-[#8A6B55]/70">{device.status}</p>
+                  </div>
+                ))}
               </div>
             </section>
           </div>
