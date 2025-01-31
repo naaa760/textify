@@ -3,148 +3,148 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+// Sidebar Navigation Item Component
+const NavItem = ({
+  icon,
+  label,
+  href,
+  isActive = false,
+}: {
+  icon: string;
+  label: string;
+  href: string;
+  isActive?: boolean;
+}) => (
+  <Link href={href}>
+    <motion.div
+      whileHover={{ x: 5 }}
+      className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors ${
+        isActive ? "bg-white/10 text-white" : "text-[#D1C0B6] hover:bg-white/5"
+      }`}
+    >
+      <span className="text-xl">{icon}</span>
+      <span className="font-medium">{label}</span>
+    </motion.div>
+  </Link>
+);
+
+// Dashboard Layout
 export default function Dashboard() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Dashboard Sidebar */}
-      <nav className="fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200">
-        <div className="p-6">
-          <Link href="/" className="text-2xl font-bold text-teal-700">
-            Lattice
+    <div className="min-h-screen bg-[#8A6B55]">
+      {/* Background Gradient */}
+      <div
+        className="fixed inset-0 bg-gradient-to-b from-[#D1C0B6] via-[#8A6B55] to-[rgba(33,33,37,0.7)]"
+        style={{ borderRadius: "40px" }}
+      />
+
+      <div className="relative flex">
+        {/* Sidebar */}
+        <motion.aside
+          initial={{ x: -300 }}
+          animate={{ x: 0 }}
+          className="w-72 h-screen sticky top-0 p-6 backdrop-blur-md bg-black/10"
+        >
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-3 mb-12">
+            <span className="text-2xl font-semibold text-white">TextiFy</span>
           </Link>
-        </div>
-        <div className="px-4">
-          <div className="space-y-1">
-            <Link
-              href="/dashboard"
-              className="block px-4 py-2 text-sm font-medium text-teal-700 bg-teal-50 rounded-md"
-            >
-              Overview
-            </Link>
-            <Link
-              href="/dashboard/employees"
-              className="block px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-md"
-            >
-              Employees
-            </Link>
-            <Link
-              href="/dashboard/performance"
-              className="block px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-md"
-            >
-              Performance
-            </Link>
-            <Link
-              href="/dashboard/engagement"
-              className="block px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-md"
-            >
-              Engagement
-            </Link>
+
+          {/* Navigation */}
+          <nav className="space-y-2">
+            <NavItem icon="🏠" label="Home" href="/dashboard" isActive />
+            <NavItem icon="📊" label="Insights" href="/dashboard/insights" />
+            <NavItem
+              icon="👥"
+              label="Recommends"
+              href="/dashboard/recommends"
+            />
+            <NavItem icon="✉️" label="Messages" href="/dashboard/messages" />
+          </nav>
+
+          {/* Settings Section */}
+          <div className="mt-8 pt-8 border-t border-white/10">
+            <nav className="space-y-2">
+              <NavItem icon="⚙️" label="Settings" href="/dashboard/settings" />
+              <NavItem icon="👤" label="Profile" href="/dashboard/profile" />
+              <NavItem icon="❓" label="FAQ's" href="/dashboard/faqs" />
+              <NavItem icon="📞" label="Contact us" href="/dashboard/contact" />
+              <NavItem icon="🚪" label="Logout" href="/logout" />
+            </nav>
           </div>
-        </div>
-      </nav>
+        </motion.aside>
 
-      {/* Main Content */}
-      <div className="ml-64">
-        {/* Top Navigation */}
-        <header className="bg-white border-b border-gray-200">
-          <div className="px-6 py-4 flex items-center justify-between">
-            <h1 className="text-2xl font-semibold">Dashboard</h1>
-            <div className="flex items-center space-x-4">
-              <button className="text-gray-600 hover:text-gray-900">
-                <span className="sr-only">Notifications</span>
-                🔔
-              </button>
-              <button className="text-gray-600 hover:text-gray-900">
-                <span className="sr-only">User menu</span>
-                👤
-              </button>
-            </div>
-          </div>
-        </header>
-
-        {/* Dashboard Content */}
-        <main className="p-6">
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="bg-white p-6 rounded-lg shadow-sm"
-            >
-              <h3 className="text-sm font-medium text-gray-500">
-                Total Employees
-              </h3>
-              <p className="text-2xl font-semibold mt-2">2,420</p>
-              <div className="mt-2 text-sm text-green-600">
-                ↑ 12% from last month
+        {/* Main Content */}
+        <main className="flex-1 p-8">
+          <div className="max-w-7xl mx-auto">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-8">
+              <div>
+                <h1 className="text-3xl font-semibold text-white">Dashboard</h1>
+                <p className="text-[#D1C0B6]">Welcome back, User!</p>
               </div>
-            </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-white p-6 rounded-lg shadow-sm"
-            >
-              <h3 className="text-sm font-medium text-gray-500">
-                Average Performance
-              </h3>
-              <p className="text-2xl font-semibold mt-2">87%</p>
-              <div className="mt-2 text-sm text-green-600">
-                ↑ 4% from last quarter
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="bg-white p-6 rounded-lg shadow-sm"
-            >
-              <h3 className="text-sm font-medium text-gray-500">
-                Engagement Score
-              </h3>
-              <p className="text-2xl font-semibold mt-2">92%</p>
-              <div className="mt-2 text-sm text-green-600">
-                ↑ 8% from last survey
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Recent Activity */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-white rounded-lg shadow-sm"
-          >
-            <div className="px-6 py-4 border-b border-gray-200">
-              <h2 className="text-lg font-medium">Recent Activity</h2>
-            </div>
-            <div className="p-6">
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center">
-                    📝
-                  </div>
-                  <div>
-                    <p className="font-medium">Performance Review Started</p>
-                    <p className="text-sm text-gray-500">2 hours ago</p>
-                  </div>
+              {/* Profile Section */}
+              <div className="flex items-center space-x-4">
+                <div className="text-right">
+                  <p className="text-white">John Doe</p>
+                  <p className="text-sm text-[#D1C0B6]">Admin</p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center">
-                    👥
-                  </div>
-                  <div>
-                    <p className="font-medium">New Employee Onboarded</p>
-                    <p className="text-sm text-gray-500">5 hours ago</p>
-                  </div>
-                </div>
+                <div className="w-10 h-10 rounded-full bg-white/20" />
               </div>
             </div>
-          </motion.div>
+
+            {/* Dashboard Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Stats Card */}
+              <motion.div
+                whileHover={{ y: -5 }}
+                className="p-6 rounded-3xl bg-white/10 backdrop-blur-sm"
+              >
+                <h3 className="text-lg font-medium text-white mb-4">
+                  Statistics
+                </h3>
+                {/* Add your stats content here */}
+              </motion.div>
+
+              {/* Activity Card */}
+              <motion.div
+                whileHover={{ y: -5 }}
+                className="p-6 rounded-3xl bg-white/10 backdrop-blur-sm"
+              >
+                <h3 className="text-lg font-medium text-white mb-4">
+                  Recent Activity
+                </h3>
+                {/* Add your activity content here */}
+              </motion.div>
+
+              {/* Tasks Card */}
+              <motion.div
+                whileHover={{ y: -5 }}
+                className="p-6 rounded-3xl bg-white/10 backdrop-blur-sm"
+              >
+                <h3 className="text-lg font-medium text-white mb-4">Tasks</h3>
+                {/* Add your tasks content here */}
+              </motion.div>
+            </div>
+
+            {/* Recent Projects Section */}
+            <section className="mt-8">
+              <h2 className="text-2xl font-semibold text-white mb-6">
+                Recent Projects
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Project Cards */}
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  className="p-6 rounded-3xl bg-white/10 backdrop-blur-sm"
+                >
+                  {/* Add project content */}
+                </motion.div>
+                {/* Add more project cards as needed */}
+              </div>
+            </section>
+          </div>
         </main>
       </div>
     </div>

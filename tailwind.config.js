@@ -74,6 +74,11 @@ module.exports = {
           50: "#2C2C35",
           100: "#1A1A1D",
         },
+        dashboard: {
+          light: "#D1C0B6",
+          DEFAULT: "#8A6B55",
+          dark: "rgba(33,33,37,0.7)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
@@ -109,6 +114,9 @@ module.exports = {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
         },
+      },
+      borderRadius: {
+        "4xl": "40px",
       },
     },
   },

@@ -327,7 +327,7 @@ export default function Home() {
                   href="/"
                   className="text-2xl font-medium text-white flex items-center"
                 >
-                  <span className="text-teal-400 mr-2">●</span> DevTools
+                  <span className="text-teal-400 mr-2">●</span> TextiFy
                 </Link>
               </div>
               <div>
