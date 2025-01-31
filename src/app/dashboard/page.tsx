@@ -13,7 +13,7 @@ import {
 } from "recharts";
 import RightSidebar from "@/components/RightSidebar";
 
-// Sidebar Navigation Item Component
+// Updated NavItem component
 const NavItem = ({
   icon,
   label,
@@ -28,12 +28,15 @@ const NavItem = ({
   <Link href={href}>
     <motion.div
       whileHover={{ x: 5 }}
-      className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors ${
-        isActive ? "bg-white/10 text-white" : "text-[#D1C0B6] hover:bg-white/5"
-      }`}
+      className={`flex items-center gap-4 px-4 py-2 rounded-lg transition-colors
+        ${isActive ? "text-white" : "text-[#6C7894] hover:text-white"}`}
     >
-      <span className="text-lg">{icon}</span>
-      <span className="text-sm font-medium">{label}</span>
+      <span className="text-xl w-6 h-6 flex items-center justify-center">
+        {icon}
+      </span>
+      <span className="font-['Chivo'] text-[20px] leading-6 font-normal">
+        {label}
+      </span>
     </motion.div>
   </Link>
 );
@@ -70,42 +73,59 @@ export default function Dashboard() {
         <motion.aside
           initial={{ x: -300 }}
           animate={{ x: 0 }}
-          className="w-[240px] min-h-screen p-6"
-          style={{
-            background: "linear-gradient(180deg, #FFFFFF 0%, #8A7455 100%)",
-            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-          }}
+          className="w-[250px] min-h-[862px] m-7 rounded-[20px] p-6 relative
+            bg-gradient-to-b from-white to-[#8A7455] 
+            shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
         >
           {/* Logo */}
-          <div className="mb-8">
-            <span className="text-2xl font-semibold text-[#8A6B55]">
+          <div className="mb-12">
+            <span className="text-2xl font-['Chivo'] text-[#8A6B55]">
               TextiFy
             </span>
           </div>
 
-          <div className="text-sm text-[#8A6B55] mb-4">Menu</div>
+          {/* Menu Section */}
+          <div className="flex flex-col gap-14">
+            <div className="flex flex-col gap-10">
+              <span className="font-['Chivo'] text-[20px] text-[#707582]">
+                Menu
+              </span>
+              <nav className="flex flex-col gap-6">
+                <NavItem icon="🏠" label="Home" href="/dashboard" isActive />
+                <NavItem
+                  icon="📊"
+                  label="Insights"
+                  href="/dashboard/insights"
+                />
+                <NavItem
+                  icon="📄"
+                  label="Recommends"
+                  href="/dashboard/recommends"
+                />
+                <NavItem
+                  icon="✉️"
+                  label="Messages"
+                  href="/dashboard/messages"
+                />
+              </nav>
+            </div>
 
-          {/* Navigation */}
-          <nav className="space-y-2">
-            <NavItem icon="🏠" label="Home" href="/dashboard" isActive />
-            <NavItem icon="📊" label="Insights" href="/dashboard/insights" />
-            <NavItem
-              icon="👥"
-              label="Recommends"
-              href="/dashboard/recommends"
-            />
-            <NavItem icon="✉️" label="Messages" href="/dashboard/messages" />
-          </nav>
-
-          {/* Settings Section */}
-          <div className="mt-8">
-            <div className="text-sm text-[#8A6B55] mb-4">Settings</div>
-            <nav className="space-y-2">
-              <NavItem icon="👤" label="Profile" href="/dashboard/profile" />
-              <NavItem icon="❓" label="FAQ's" href="/dashboard/faqs" />
-              <NavItem icon="📞" label="Contact us" href="/dashboard/contact" />
-              <NavItem icon="🚪" label="Logout" href="/logout" />
-            </nav>
+            {/* Settings Section */}
+            <div className="flex flex-col gap-10">
+              <span className="font-['Chivo'] text-[20px] text-[#484E5B]">
+                Settings
+              </span>
+              <nav className="flex flex-col gap-6">
+                <NavItem icon="👤" label="Profile" href="/dashboard/profile" />
+                <NavItem icon="❓" label="FAQ's" href="/dashboard/faqs" />
+                <NavItem
+                  icon="📞"
+                  label="Contact us"
+                  href="/dashboard/contact"
+                />
+                <NavItem icon="🚪" label="Logout" href="/logout" />
+              </nav>
+            </div>
           </div>
         </motion.aside>
 
