@@ -43,11 +43,18 @@ export default function Dashboard() {
         <motion.aside
           initial={{ x: -300 }}
           animate={{ x: 0 }}
-          className="w-72 h-screen sticky top-0 p-6 backdrop-blur-md bg-black/10"
+          className="w-72 h-screen sticky top-0 p-6"
+          style={{
+            background: "linear-gradient(180deg, #FFFFFF 0%, #8A7455 100%)",
+            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+            borderRadius: "20px",
+          }}
         >
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 mb-12">
-            <span className="text-2xl font-semibold text-white">TextiFy</span>
+            <span className="text-2xl font-semibold text-[#8A6B55]">
+              TextiFy
+            </span>
           </Link>
 
           {/* Navigation */}
